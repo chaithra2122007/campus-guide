@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Smart Campus Guide</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+margin:0;
+font-family: Arial, sans-serif;
+background:#f2f2f2;
+text-align:center;
+}
+
+/* Splash Screen */
+
+#splash{
+position:fixed;
+width:100%;
+height:100vh;
+background:#2c3e50;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+color:white;
+animation:fadeOut 2s forwards;
+animation-delay:3s;
+}
+
+#splash img{
+width:150px;
+animation:zoom 2s infinite alternate;
+}
+
+@keyframes zoom{
+from{transform:scale(1);}
+to{transform:scale(1.2);}
+}
+
+@keyframes fadeOut{
+to{opacity:0; visibility:hidden;}
+}
+
+/* Main Content */
+
+#main{
+display:none;
+min-height:100vh;
+}
+
+nav{
+background:#2c3e50;
+padding:15px;
+}
+
+nav a{
+color:white;
+margin:15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.card{
+background:white;
+width:260px;
+margin:20px;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+display:inline-block;
+vertical-align:top;
+}
+
+button{
+background:#3498db;
+color:white;
+border:none;
+padding:10px 15px;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#2980b9;
+}
+
+ul{
+text-align:left;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Splash Screen -->
+
+<div id="splash">
+<img src="image.png">
+<h2>Welcome to Smart Campus Guide</h2>
+</div>
+
+<!-- Main Website -->
+
+<div id="main">
+
+<h1>Smart Campus Guide</h1>
+<h3>Siddaganga Institute of Technology, Tumkur</h3>ind all campus locations,departments, and IoT sensor data in one place.
+
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Campus Map</a>
+<a href="#">Departments</a>
+<a href="#">Locations</a>
+<a href="#">IoT Monitoring</a>
+<a href="#">Chatbot</a>
+</nav>
+
+<!-- Campus Map -->
+
+<div class="card">
+<h2><i class="fa-solid fa-map"></i> Campus Map</h2>
+<p>Find buildings and classrooms easily.</p>
+<button onclick="openMap()">View Map</button>
+</div>
+
+<!-- Locations -->
+
+<div class="card">
+<h2>Campus Locations</h2>
+<button onclick="showLocations()">View Locations</button>
+
+<div id="locations" style="display:none;">
+
+<ul>
+<li>Administration Block</li>
+<li>Central Library</li>
+<li>Media Centre</li>
+<li>Birla Auditorium</li>
+<li>Canteen</li>
+<li>Computer Science Department</li>
+<li>Mechanical Department</li>
+<li>Civil Department</li>
+<li>Electronics Department</li>
+<li>Boys Hostel</li>
+<li>Girls Hostel</li>
+<li>Indoor Stadium</li>
+<li>Cricket Ground</li>
+<li>Football Ground</li>
+<li>Health Centre</li>
+<li>Bank / ATM</li>
+<li>Parking Area</li>
+</ul>
+
+</div>
+</div>
+
+<!-- Departments -->
+
+<div class="card">
+<h2>Departments</h2>
+<button onclick="showDepartments()">View Departments</button>
+
+<div id="departments" style="display:none;">
+
+<ul>
+<li>Civil Engineering</li>
+<li>Mechanical Engineering</li>
+<li>Computer Science and Engineering</li>
+<li>Information Science and Engineering</li>
+<li>Electronics and Communication Engineering</li>
+<li>Electrical and Electronics Engineering</li>
+<li>Artificial Intelligence & Data Science</li>
+<li>Biotechnology</li>
+<li>Chemical Engineering</li>
+<li>Architecture</li>
+</ul>
+
+</div>
+
+</div>
+
+<!-- IoT Sensors -->
+
+<div class="card">
+<h2>🌡 Smart Campus Monitoring</h2>
+<p>View environmental data from IoT sensors.</p>
+<button onclick="showSensors()">View Sensors</button>
+
+<div id="sensors" style="display:none;">
+
+<p>Temperature : 28°C</p>
+<p>Humidity : 65%</p>
+<p>Air Quality : Good</p>
+<p>Light Intensity : 450 lux</p>
+
+</div>
+
+</div>
+
+<!-- Chatbot -->
+
+<div class="card">
+
+<h2>🤖 Chatbot</h2>
+
+<input type="text" id="userInput" placeholder="Ask about campus">
+<button onclick="chat()">Ask</button>
+
+<p id="botReply"></p>
+
+</div>
+
+</div>
+
+<script>
+
+/* Show main after splash */
+
+setTimeout(function(){
+document.getElementById("main").style.display="block";
+},3000);
+
+/* Locations */
+
+function showLocations(){
+let x = document.getElementById("locations");
+
+if(x.style.display==="none"){
+x.style.display="block";
+}
+else{
+x.style.display="none";
+}
+}
+
+/* Departments */
+
+function showDepartments(){
+let x = document.getElementById("departments");
+
+if(x.style.display==="none"){
+x.style.display="block";
+}
+else{
+x.style.display="none";
+}
+}
+
+/* IoT Sensors */
+
+function showSensors(){
+let x = document.getElementById("sensors");
+
+if(x.style.display==="none"){
+x.style.display="block";
+}
+else{
+x.style.display="none";
+}
+}
+
+/* Map */
+
+function openMap(){
+alert("Campus map will open here.");
+}
+
+/* Chatbot */
+
+function chat(){
+
+let question = document.getElementById("userInput").value.toLowerCase();
+let answer = "Sorry, I don't know that yet.";
+
+if(question.includes("library")){
+answer = "The library is near the administrative block.";
+}
+
+else if(question.includes("canteen")){
+answer = "The canteen is near the media center.";
+}
+
+else if(question.includes("department")){
+answer = "Departments are in the main academic building.";
+}
+
+document.getElementById("botReply").innerText = answer;
+
+}
+
+</script>
+
+</body>
+</html>
